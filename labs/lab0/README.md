@@ -1,9 +1,10 @@
 # Lab 0 – Development Environment Setup
 
-**Course:** Web Application Programming and Hacking (WAPH) 
-**Instructor:** Dr. Phu Phung
-**Name:** Thanooj daggu
-**Email:** daggut1@udayton.edu 
+**Course:** Web Application Programming and Hacking (WAPH)  
+**Instructor:** Dr. Phu Phung  
+**Name:** Thanooj daggu  
+**Email:** daggut1@udayton.edu  
+
 
 [View this lab on GitHub](https://github.com/daggut1/waph-daggut1/tree/main/labs/lab0)
 
@@ -19,6 +20,6 @@ sudo snap install sublime-text --classic
 ## Part II – Git Repositories & Exercises
 
 ### The Course Repository
-
 ![Cloned course repo](clone_course_repo.png)
+
 
