@@ -16,6 +16,7 @@ I then ran:
 sudo apt update
 sudo apt install apache2 git net-tools pandoc \ texlive-latex-base texlive-latex-extra texlive-fonts-extra
 sudo snap install sublime-text --classic
+```
 
 ## Part II – Git Repositories & Exercises
 
