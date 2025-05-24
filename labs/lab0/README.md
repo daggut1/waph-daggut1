@@ -18,6 +18,7 @@ sudo apt install apache2 git net-tools pandoc \ texlive-latex-base texlive-latex
 sudo snap install sublime-text --classic
 ```
 
+
 ## Part II – Git Repositories & Exercises
 
 ### The Course Repository
