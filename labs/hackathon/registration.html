@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure User Registration</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // ✅ Step 3 — Safe sanitizer function
+    function sanitizeInput(inputText) {
+      return inputText
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    $(document).ready(function() {
+      // ✅ Password validation
+      $("#userPassword").on('input', function() {
+        const pwd = $(this).val();
+        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+        if (!regex.test(pwd)) {
+          $("#pwdError").show();
+        } else {
+          $("#pwdError").hide();
+        }
+      });
+
+      // ✅ Registration form submit
+      $("#registrationForm").submit(function(event) {
+        event.preventDefault();
+        const username = $("#userName").val();
+        const pwd = $("#userPassword").val();
+        const pwdConfirm = $("#confirmPassword").val();
+
+        if (pwd !== pwdConfirm) {
+          alert("Passwords do not match!");
+          return;
+        }
+
+        // ✅ Sanitize the username before showing
+        const safeUserName = sanitizeInput(username);
+        $("#result").html("Welcome, " + safeUserName + "!");
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>Secure User Registration</h2>
+  <form id="registrationForm">
+    <label>User Name:</label>
+    <input type="text" id="userName" required><br><br>
+    <label>Password:</label>
+    <input type="password" id="userPassword" required>
+    <span id="pwdError" style="color: red; display: none;">
+      Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character (@$!%*?&).
+    </span><br><br>
+    <label>Confirm Password:</label>
+    <input type="password" id="confirmPassword" required><br><br>
+    <button type="submit">Register Now</button>
+  </form>
+  <h3 id="result"></h3>
+</body>
+</html>
